@@ -3,6 +3,8 @@ size = input("What size pizza do you want? S, M or L: ").strip().upper()
 pepperoni = input("Do you want pepperoni on your pizza? Y or N: ").strip().upper()
 extra_cheese = input("Do you want extra cheese? Y or N: ").strip().upper()
 
+# My Solution
+
 price = 0
 valid_order = True
 
@@ -19,8 +21,10 @@ else:
 
 # Pepperoni selection
 if pepperoni == "Y":
-    if size in ["S", "M", "L"]:
+    if size == "S":
         price += 2
+    elif size in ["M", "L"]:
+        price += 3
     print("Pepperoni added.")
 elif pepperoni == "N":
     print("Pepperoni not added.")
@@ -43,3 +47,25 @@ if valid_order:
     print(f"Your final bill is: ${price}.")
 else:
     print("Order cannot be completed due to invalid selections.")
+
+# Course Solution
+# bill = 0
+# if size == "S":
+#     bill += 15
+# elif size == "M":
+#     bill += 20
+# elif size == "L":
+#     bill += 25
+# else:
+#     print("You typed the wrong inputs.")
+#
+# if pepperoni == "Y":
+#     if size == "S":
+#         bill += 2
+#     else:
+#         bill += 3
+#
+# if extra_cheese == "Y":
+#     bill += 1
+#
+# print(f"Your final bill is: ${bill}.")
