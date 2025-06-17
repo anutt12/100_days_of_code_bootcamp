@@ -1,6 +1,6 @@
-from enum import Enum
 import random
-from typing import Optional, Tuple
+from enum import Enum
+from typing import Optional
 
 
 class GameChoice(Enum):
@@ -96,10 +96,11 @@ def play_again() -> bool:
             return choice == 'Y'
         print("Please enter Y or N.")
 
+
 def play_game():
     """Main game function."""
     print("Welcome to the Rock Paper Scissors Game!")
-    
+
     while True:
         user_choice = get_user_choice()
         if user_choice is None:
@@ -116,6 +117,7 @@ def play_game():
         if not play_again():
             print("\nThanks for playing!")
             break
+
 
 if __name__ == "__main__":
     play_game()
