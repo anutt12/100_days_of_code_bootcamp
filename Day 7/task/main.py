@@ -171,7 +171,7 @@ class HangmanGame:
         print("Guessed letters:", " ".join(sorted(guessed_letters)))
 
     def play_round(self):
-        word = self.random_words.get_random_word()
+        word = self.random_words.random_word()
         word_letters = set(word)
         guessed_letters = set()
         lives = self.MAX_LIVES
