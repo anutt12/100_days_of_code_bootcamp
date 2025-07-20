@@ -1,4 +1,4 @@
-from random_word import RandomWords
+from random_words import RandomWords
 
 
 def ask_play_again():
