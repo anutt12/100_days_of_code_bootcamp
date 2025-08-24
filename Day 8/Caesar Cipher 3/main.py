@@ -15,7 +15,7 @@ def caesar(original_text, shift_amount, encode_or_decode):
     shift_amount = shift_amount % 26
 
     for letter in original_text:
-        if letter in alphabet:
+        if letter.isalpha():
             position = alphabet.index(letter)
             if encode_or_decode == "decode":
                 new_position = (position - shift_amount) % len(alphabet)
@@ -30,8 +30,21 @@ def caesar(original_text, shift_amount, encode_or_decode):
 should_continue = True
 while should_continue:
     direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n").lower()
-    text = input("Type your message:\n").lower()
-    shift = int(input("Type the shift number:\n"))
+    while direction not in ["encode", "decode"]:
+        direction = input("Please type only 'encode' or 'decode':\n").lower()
+
+    while True:
+        text = input("Type your message:\n").lower()
+        if all(c.isalpha() or c.isspace() for c in text):
+            break
+        print("Please enter only letters and spaces in your message")
+
+    while True:
+        try:
+            shift = int(input("Type the shift number:\n"))
+            break
+        except ValueError:
+            print("Please enter a valid number for the shift")
 
     caesar(text, shift, direction)
 
