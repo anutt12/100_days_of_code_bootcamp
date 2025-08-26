@@ -46,10 +46,14 @@ def find_highest_bidder(bidding_record):
 
 print(art.logo)
 print(WELCOME_MESSAGE)
+
+# Dictionary storing names and bids as key-value pairs
 bidding_record = {}
+
 continue_bidding = True
 while continue_bidding:
     bidder_name, bid_amount = get_bid_from_user()
     bidding_record[bidder_name] = bid_amount
     continue_bidding = ask_to_continue()
+
 find_highest_bidder(bidding_record)
