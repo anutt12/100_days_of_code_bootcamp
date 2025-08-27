@@ -1,9 +1,27 @@
 import art
+import os
+import sys
 
 WELCOME_MESSAGE = "Welcome to the secret auction program."
 ASK_NAME_PROMPT = "What is your name?: "
 ASK_BID_PROMPT = "What is your bid?: $"
 ASK_CONTINUE_PROMPT = "Are there any other bidders? Type 'yes' or 'no': "
+
+
+def clear_screen():
+    # Clear the screen only when running in an interactive terminal.
+    if sys.stdout.isatty():
+        if os.name == "nt":
+            os.system("cls")
+        else:
+            # Only attempt 'clear' when TERM is present; otherwise, fall back.
+            if os.environ.get("TERM"):
+                os.system("clear")
+            else:
+                print("\n" * 100)
+    else:
+        # Non-interactive environment (e.g., logs, IDE console): avoid ANSI/system calls.
+        print("\n" * 100)
 
 
 def get_bid_from_user():
@@ -55,5 +73,9 @@ while continue_bidding:
     bidder_name, bid_amount = get_bid_from_user()
     bidding_record[bidder_name] = bid_amount
     continue_bidding = ask_to_continue()
+    if continue_bidding:
+        clear_screen()
+    elif not continue_bidding:
+        clear_screen()
 
 find_highest_bidder(bidding_record)
