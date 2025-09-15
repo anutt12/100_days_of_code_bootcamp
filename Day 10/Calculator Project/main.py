@@ -85,12 +85,3 @@ def calculator() -> None:
 
 if __name__ == "__main__":
     calculator()
-
-operations = {
-    "+": add,
-    "-": subtract,
-    "*": multiply,
-    "/": divide,
-}
-
-# print(operations["*"](4, 8))
